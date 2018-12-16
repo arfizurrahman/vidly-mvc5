@@ -24,6 +24,11 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
+        public void Test()
+        {
+            int a = 10;
+        }
+
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
