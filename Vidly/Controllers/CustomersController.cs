@@ -24,10 +24,7 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        public void Test()
-        {
-            int a = 10;
-        }
+        
 
         public ActionResult New()
         {
