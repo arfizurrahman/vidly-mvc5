@@ -7,16 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("styles", required: false)
-    <style>
-        .body-content {
-            margin-top: 20px;
-        }
-        .navbar-light .navbar-brand {
-            font-size: 22px;
-            line-height: 1;
-            font-weight: 600;
-        }
-    </style>
+   
 </head>
 <body>
 @Html.Partial("_NavBar")
@@ -28,8 +19,8 @@
     </footer>
 </div>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
+
+@Scripts.Render("~/bundles/lib")
 @RenderSection("scripts", required: false)
 </body>
 </html>
