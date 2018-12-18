@@ -5,6 +5,16 @@
 }
 
 <h2>Movies</h2>
+@*@{ Commented because we are using api to get the movies
+            if (!Model.Any())
+            {
+                <p>We don't have any movies yet.</p>
+            }
+        }
+
+    else{
+
+    }*@
 @Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
 <table id="movies" class="table table-hover">
     <thead>
@@ -30,7 +40,7 @@
 @section scripts
 {
     <script>
-        $(function() {
+        $(function () {
             $("#movies ").DataTable();
         });
     </script>
