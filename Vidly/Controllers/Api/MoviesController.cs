@@ -38,6 +38,7 @@ namespace Vidly.Controllers.Api
 
         //POST api/movies
         [HttpPost]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
             DateTime dateTime = DateTime.Now;
@@ -54,6 +55,7 @@ namespace Vidly.Controllers.Api
 
         //PUT api/movies/1
         [HttpPut]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
         {
             if (!ModelState.IsValid)
