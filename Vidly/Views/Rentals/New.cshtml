@@ -8,12 +8,24 @@
 <form>
     <div class="form-group">
         <label>Customer</label>
-        <input id="customer" type="text" class="form-control" value="" />
+        <div class="tt-container">
+            <input id="customer" type="text" class="form-control" value="" />
+        </div>
+        
     </div>
     <div class="form-group">
         <label>Movie</label>
-        <input id="movie" type="text" class="form-control" value="" />
+        <div class="tt-container">
+            <input id="movie" type="text" class="form-control" value="" />
+        </div>
+        
     </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <ul id="movies" class="list-group"></ul>
+        </div>
+    </div>
+    
     <button class="btn btn-primary">Submit</button>
 </form>
 
@@ -21,7 +33,9 @@
 {
     <script>
         $(function() {
-            var vm = {};
+            var vm = {
+                movieIds: []
+            };
             var customers = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -58,20 +72,21 @@
 
 
             $('#movie').typeahead({
-                minLength: 3,
-                highlight: true
-            },
+                    minLength: 3,
+                    highlight: true
+                },
                 {
                     name: 'movies',
                     display: 'name',
                     source: movies
                 }).on("typeahead:select",
-                function (e, movie) {
-                    vm.movie = movie.id;
-                    console.log(vm.movie);
+                function(e, movie) {
+                    $("#movies").append("<li class='list-group-item'>" + movie.name + "</li>");
+                    $("#movie").typeahead("val", "");
+                    vm.movieIds.push(movie.id);
                 });
-            
+
         });
     </script>
-    
+
 }
