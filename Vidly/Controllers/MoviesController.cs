@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
+using System.Runtime.Caching;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
@@ -34,6 +35,19 @@ namespace Vidly.Controllers
             };
             return View("MovieForm", viewModel);
         }
+
+        /*Data cache*/
+        //public ViewResult Index()
+        //{
+        //    if (MemoryCache.Default["Genres"] == null)
+        //    {
+        //        MemoryCache.Default["Genres"] = _context.Movies.ToList();
+        //    }
+
+        //    var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+
+        //    return View();
+        //}
 
         public ActionResult Index()
         {
